@@ -1,0 +1,45 @@
+package com.example.demo.controllers;
+
+import java.util.List;
+
+import javax.validation.Valid;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import com.example.demo.entities.Student;
+import com.example.demo.services.StudentService;
+
+@RestController
+public class StudentController {
+
+	@Autowired
+	StudentService studentService;
+
+	@RequestMapping("/student")
+	public List<Student> getAll() {
+		return studentService.getAll();
+	}
+
+	@RequestMapping("/student/firstName")
+	public List<String> getFirstNames() {
+		return studentService.getFirstNames();
+	}
+
+	@RequestMapping(method = RequestMethod.POST, value = "/student")
+	public ResponseEntity<Object> addStudent(@Valid @RequestBody Student student) {
+		boolean created = studentService.addStudent(student);
+		if (created) {
+			return new ResponseEntity<>(HttpStatus.CREATED);
+		}
+		return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+	}
+
+	@RequestMapping("/student/{Id}")
+	public Student getStudentById(@PathVariable("Id") int id) {
+		return studentService.getStudentById(id);
+	}
+
+}
