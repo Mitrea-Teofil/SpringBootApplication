@@ -42,4 +42,21 @@ public class StudentController {
 		return studentService.getStudentById(id);
 	}
 
+	@RequestMapping(method = RequestMethod.DELETE, value = "/student/{Id}")
+	public ResponseEntity<Object> deleteStudentById(@PathVariable("Id") int id) {
+		 boolean deleted = studentService.deleteStudentById(id);
+		 if (deleted){
+		 	return new ResponseEntity<>(HttpStatus.OK);
+		 }
+		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+	}
+
+	@RequestMapping(method = RequestMethod.PUT, value = "/student")
+	public ResponseEntity<Object> updateStudent(@Valid @RequestBody Student student) {
+		boolean updated = studentService.updateStudent(student);
+		if (updated) {
+			return new ResponseEntity<>(HttpStatus.OK);
+		}
+		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+	}
 }

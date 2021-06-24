@@ -31,4 +31,11 @@ public class StudentService {
 		return studentRepository.getStudentById(Id);
 	}
 
+	public boolean deleteStudentById (int Id){
+		return studentRepository.deleteStudentById(Id);
+	}
+
+	public boolean updateStudent(Student student) {
+		return studentRepository.updateStudent(student);
+	}
 }
