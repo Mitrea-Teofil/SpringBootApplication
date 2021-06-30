@@ -14,15 +14,6 @@ public class Assignment {
     @NotNull
     private int professorId;
 
-    public Assignment() {
-        this.id = id;
-        this.name = name;
-        this.description = description;
-        this.creditsNumber = creditsNumber;
-        this.studentId = studentId;
-        this.professorId = professorId;
-    }
-
     public int getId() {
         return id;
     }
