@@ -2,7 +2,7 @@ package com.example.demo.entities;
 
 import javax.validation.constraints.NotNull;
 
-public class Assigment {
+public class Assignment {
 
     private int id;
     private String name;
@@ -14,7 +14,7 @@ public class Assigment {
     @NotNull
     private int professorId;
 
-    public Assigment() {
+    public Assignment() {
         this.id = id;
         this.name = name;
         this.description = description;
