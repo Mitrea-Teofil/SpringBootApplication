@@ -2,7 +2,7 @@ package com.example.demo.entities;
 
 import javax.validation.constraints.NotNull;
 
-public class Assignment {
+public class RAssignment {
 
     private int id;
     private String name;
@@ -10,9 +10,9 @@ public class Assignment {
     @NotNull
     private int creditsNumber;
     @NotNull
-    private int studentId;
+    private Student student;
     @NotNull
-    private int professorId;
+    private Professor professor;
 
     public int getId() {
         return id;
@@ -46,19 +46,19 @@ public class Assignment {
         this.creditsNumber = creditsNumber;
     }
 
-    public int getStudentId() {
-        return studentId;
+    public Student getStudent() {
+        return student;
     }
 
-    public void setStudentId(int studentId) {
-        this.studentId = studentId;
+    public void setStudent(Student student) {
+        this.student = student;
     }
 
-    public int getProfessorId() {
-        return professorId;
+    public Professor getProfessor() {
+        return professor;
     }
 
-    public void setProfessorId(int professorId) {
-        this.professorId = professorId;
+    public void setProfessor(Professor professor) {
+        this.professor = professor;
     }
 }

@@ -9,7 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import com.example.demo.entities.Assignment;
+import com.example.demo.entities.RAssignment;
 import com.example.demo.services.AssignmentService;
 
 @RestController
@@ -19,7 +19,7 @@ public class AssignmentController {
     AssignmentService assignmentService;
 
     @RequestMapping("/assignment")
-    public List<Assignment> getAll() {
+    public List<RAssignment> getAll() {
         return assignmentService.getAll();
     }
 
@@ -29,8 +29,8 @@ public class AssignmentController {
     }
 
     @RequestMapping(method = RequestMethod.POST, value = "/assignment")
-    public ResponseEntity<Object> addAssignment(@Valid @RequestBody Assignment assignment) {
-        boolean created = assignmentService.addAssignment(assignment);
+    public ResponseEntity<Object> addAssignment(@Valid @RequestBody RAssignment RAssignment) {
+        boolean created = assignmentService.addAssignment(RAssignment);
         if (created) {
             return new ResponseEntity<>(HttpStatus.CREATED);
         }
@@ -38,7 +38,7 @@ public class AssignmentController {
     }
 
     @RequestMapping("/assignment/{Id}")
-    public Assignment getAssignmentById(@PathVariable("Id") int id) {
+    public RAssignment getAssignmentById(@PathVariable("Id") int id) {
         return assignmentService.getAssignmentById(id);
     }
 
@@ -52,8 +52,8 @@ public class AssignmentController {
     }
 
     @RequestMapping(method = RequestMethod.PUT, value = "/assignment")
-    public ResponseEntity<Object> updateAssignment(@Valid @RequestBody Assignment assignment) {
-        boolean updated = assignmentService.updateAssignment(assignment);
+    public ResponseEntity<Object> updateAssignment(@Valid @RequestBody RAssignment RAssignment) {
+        boolean updated = assignmentService.updateAssignment(RAssignment);
         if (updated) {
             return new ResponseEntity<>(HttpStatus.OK);
         }
